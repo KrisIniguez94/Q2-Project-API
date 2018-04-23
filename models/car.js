@@ -12,20 +12,20 @@ const readOne = car_id => {
   .catch(error => {console.error(error); })
 }
 
-const create = ({title, content}) => {
+const create = ({image_url, description, make_model}) => {
   return knex('cars')
   .returning('*')
-  .insert({title, content})
+  .insert({image_url, description, make_model})
   .then(row => row[0])
   .catch(error => {console.error(error);})
 }
 
 const update = (car_id, updates) => {
   return knex('cars')
-  .returnng('*')
-  .update({updates, updated_at: new Date(Date.now()).toISOString()})
-  .where('id', blogpost_id)
-  .then(row =>[0])
+  .returning('*')
+  .update({...updates, updated_at: new Date(Date.now()).toISOString()})
+  .where('id', car_id)
+  .then(row =>row[0])
   .catch(error => {console.error(error);})
 }
 

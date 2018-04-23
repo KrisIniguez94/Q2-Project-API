@@ -9,7 +9,7 @@ const readAll = (request, response) => {
 }
 
 const readOne = (request, response) => {
-  carModel.readAll(request. params.car_id)
+  carModel.readOne(request.params.car_id)
   .then(result => {response.json(result);})
   .catch(error => {console.error(error);})
 }
@@ -22,7 +22,7 @@ const create = (request, response) => {
 
 const update = (request, response) => {
   carModel.update(request.params.car_id, request.body)
-  .then(result =>{respone.json(result);})
+  .then(result =>{response.json(result);})
   .catch(error => {console.error(error);})
 }
 
