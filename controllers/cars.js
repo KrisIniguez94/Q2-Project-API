@@ -2,7 +2,9 @@ const carModel = require('../models/car');
 
 const readAll = (request, response) => {
   carModel.readAll()
-  .then(result => {response.json(result);})
+  .then(result => {
+    response.json(result);
+  })
   .catch(error => {console.error(error);})
 }
 
